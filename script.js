@@ -1,20 +1,30 @@
 const btn = document.getElementById("btn");
-// const flipcard = document.querySelector(".flip-card");
+const wish = "happy new year";
+const wishElement = document.getElementById("wish");
+
+let date1 = new NepaliDate(2082, 0, 1);
+date1.toJsDate();
+console.log(date1);
+const flipcard = document.querySelector(".flip-card");
 var dark = false;
 
-// const countToDate = new Date().setHours(new Date().getHours() + 24);
+// const countToDateUTC = new Date();
+// countToDateUTC.setTime(countToDateUTC.getTime() + 10000);
+// console.log(countToDateUTC);
 
-const countToDateUTC = new Date("2025-04-11T18:15:00.000Z");
-
-const countToDateLocal = new Date(countToDateUTC.toLocaleString());
 let previousTimeBetweenDates;
 
-setInterval(() => {
+const intervalId = setInterval(() => {
   const currentDate = new Date();
-  //   console.log(currentDate);
-  const timeBetweenDates = Math.floor((countToDateUTC - currentDate) / 1000);
-
-  flipAllCard(timeBetweenDates);
+  const timeBetweenDates = Math.floor((date1 - currentDate) / 1000);
+  if (timeBetweenDates === -1) {
+    console.log(wish);
+    clearInterval(intervalId);
+    wishElement.textContent = "Happy New Year ❤️";
+    wishElement.classList.add("newyear");
+  } else {
+    flipAllCard(timeBetweenDates);
+  }
   previousTimeBetweenDates = timeBetweenDates;
 }, 250);
 
@@ -41,8 +51,11 @@ function flipAllCard(time) {
 
 function flip(flipcard, timeNumber) {
   const topHalf = flipcard.querySelector(".top");
+  console.log(topHalf.textContent);
   const initNumber = parseInt(topHalf.textContent);
-  if (timeNumber === initNumber) return;
+  if (timeNumber === initNumber) {
+    return;
+  }
 
   const bottomHalf = flipcard.querySelector(".bottom");
   const topFlip = document.createElement("div");

@@ -2,13 +2,19 @@
 {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
 .body 
 {
-  background-color: #f2f1ed;
-  color: #de4848;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f1ed;
+    color: #de4848;
+    height: 100vh;
 }
 
 .new
@@ -21,8 +27,7 @@
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    /* flex-direction: column; */
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
     border-radius: 0.1em;
 }
 
@@ -55,11 +60,7 @@
     border-radius: 0 0 0.1em 0.1em;
 }
 
-.cont
-{
-    display: inline-flex;
-    flex-direction: column;
-}
+
 
 .flip-card .top-flip
 {
@@ -94,12 +95,32 @@
     }
 }
 
+.title-container
+{
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 2em;
+}
+
+.wish{
+    font-size: 40vh;
+    font-weight: bold;
+}
+
+.newyear
+{
+    font-size: 10vh;
+    font-weight: bold;
+}
+
 
 .container
 {
     display: flex;
     gap: .5em;
-    justify-content: center;
+    margin-bottom: 200px;
+    font-size: 4rem;
 }
 
 .container-segment{
@@ -111,11 +132,12 @@
 
 .title-segment
 {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
 }
 
 .flip-segment
 {
     display: flex;
     gap: .1em;
+   
 }
